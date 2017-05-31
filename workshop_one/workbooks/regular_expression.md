@@ -6,6 +6,9 @@
 
 The term “regular expressions” is frequently shortened to “regex” or “regexp” in conversation. 
 
+Regular expressions are typically used in applications that involve a lot of text processing
+
+
 Let us look at some regular expression examples: Define some rules
 
 * Write a letter "a" at least once
@@ -20,6 +23,7 @@ Examples of such strings are:
 May such strings can satifies above rules.  Look at the script below: 
 
 ```
+
 import re
 
 text = 'aaaabbbbbccccccd'
@@ -51,6 +55,9 @@ I am satisfying the Rules
 
 ## A Few Rules: Commonly Used RegEx symbols
 ---
+Regular expressions support powerful patterns than simple literal text strings. 
+Patterns can repeat, can be expressed in compact forms. Following  meta-characters can help you build regular expression pattern
+syntax implemented by re module.
 
 | symbol | Meaning | Example Pattern | Example Matches|
 |---|---|---|---|
@@ -79,6 +86,17 @@ I am satisfying the Rules
 |\w|alphanumeric|
 |\W|non-alphanumeric|
 
+## Anchoring 
+
+|Code|Meaning|
+|---|---|
+|^|start of string, or line|
+|$|end of string, or line|
+|\A|start of string|
+|\Z|end of string|
+|\b|empty string at the beginning or end of a word|
+|\B|empty string not at the beginning or end of a word|
+
 
 ## Mostly used functions from re module,
 
@@ -98,7 +116,7 @@ I am satisfying the Rules
 import re
 
 pattern = 'Hello'
-text = 'Hello Data Science Folks, How are you?'
+text = 'Hello Python Programmers, How are you?'
 
 match = re.search(pattern, text)
 print (type(match))
@@ -106,9 +124,11 @@ print (type(match))
 s = match.start()
 e = match.end()
 
-print('Found "{}" in "{}" from {} to {} ("{}")'.format(match.re.pattern, match.string, s, e, text[s:e]))
+print('Found "{}"\nin "{}"\n from {} to {} ("{}")'.format(match.re.pattern, match.string, s, e, text[s:e]))
 
 ```
+
+
 
 2. simple_compiled.py 
 
@@ -117,17 +137,92 @@ import re
 
 pattern = 'Hello'
 re_pattern = re.compile(pattern)
-text = 'Hello Data Science Folks, How are you?'
+text = 'Hello Python Programmers, How are you?'
 
 print (type(pattern))
 
+print('Seeking "{}"'.format(re_pattern.pattern))
 match = re.search(re_pattern, text)
 print (type(match))
 
 s = match.start()
 e = match.end()
 
-print('Found "{}" in "{}" from {} to {} ("{}")'.format(match.re.pattern, match.string, s, e, text[s:e]))
+print('Found "{}"\nin "{}"\nfrom {} to {} ("{}")'.format(match.re.pattern, match.string, s, e, text[s:e]))
 
 ```
 
+3. regex_find_all.py
+
+```
+#!/usr/bin/python3
+
+import re
+regex = "\[P\] (.+?) \[/P\]+?"
+line = "President [P] Barack Obama [/P] met Microsoft founder [P] Bill Gates [/P], yesterday. [P] Donald Trump [/P] was not Pre
+sident at that moment."
+person = re.findall(regex, line)
+print(person)
+
+
+```
+
+4.  regex_find_iter.py
+
+```
+
+#!/usr/bin/python3
+
+import re
+regex = r"\[P\] (.+?) \[/P\]+?"
+line = "President [P] Barack Obama [/P] met Microsoft founder [P] Bill Gates [/P], yesterday. [P] Donald Trump [/P] was not Pre
+sident at that moment."
+
+for match in re.finditer(regex, line):
+        print (type(match))
+        print ("match start: ", match.start())
+        print ("match end (exclusive): ", match.end())
+        print ("matched text: ", match.group())
+
+
+```
+
+
+## A few Patterns:  Repetition
+
+* 'ab*' :  'a followed by zero or more b'
+* 'ab+' :  'a followed by one or more b'
+* 'ab?' : 'a followed by zero or one b'
+* 'ab{3}':  'a followed by three b'
+* 'ab{2,3}' :  'a followed by two to three b'
+
+## Character Sets
+
+A character set is a group of characters, any one of which can match at that point in the pattern. For example, [ab] would match either a or b.
+
+* '[ab]' :  'either a or b'
+* 'a[ab]+' :  'a followed by 1 or more a or b'
+* '[a-z]+' :  'sequences of lowercase letters'
+* '[A-Z]+' :  'sequences of uppercase letters'
+* '[a-zA-Z]+' :  'sequences of letters of either case'
+* '[A-Z][a-z]+' :  'one uppercase followed by lowercase'
+
+
+A character set can also be used to exclude specific characters. The carat (^) means to look for characters that are not in the set following the carat.
+
+* '[^-. ]+':  'sequences without -, ., or space' 
+
+
+## Contraining the Search 
+
+## Matches with Groups
+
+## Search Options 
+
+### Case Insensitive Match 
+### Multiple Line Match 
+### Verbose Expression Syntax
+
+
+## References 
+* http://pythex.org/ 
