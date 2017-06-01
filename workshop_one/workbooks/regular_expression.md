@@ -1,12 +1,15 @@
 # Regular Expression
 ---
 
+check this out : https://www.xkcd.com/208/
+
+
 * Regular expressions are patterns described with a formal syntax. The patterns are tried to match with text. 
-* The patters are executed with a string as input to produce a matching subset or modified version of the original
+* The patterns are executed with a string as input to produce a matching subset or modified version of the original text
 
-The term “regular expressions” is frequently shortened to “regex” or “regexp” in conversation. 
+The term *“regular expressions”* is frequently shortened to *“regex”* or *“regexp”* in conversation. 
 
-Regular expressions are typically used in applications that involve a lot of text processing
+Regular expressions are typically used in applications that involve a lot of text processing and data
 
 
 Let us look at some regular expression examples: Define some rules
@@ -20,7 +23,7 @@ Examples of such strings are:
 * aaaakkkccccd
 * aakkkcc
 
-May such strings can satifies above rules.  Look at the script below: 
+Many such strings can satifies the above rules.  Look at the script below: 
 
 ```
 
@@ -43,7 +46,7 @@ The pattern:
 pattern = 'a+bbbbb(cc)+d?'
 
 ```
-help detect whether text satisfy above defined rules or not. 
+is the regular expression. This help detect whether text satisfy above defined rules or not. 
 
 The execution of the above script is as below:
 
@@ -74,8 +77,9 @@ syntax implemented by re module.
 |$|Used for end of line char| [A-Z]*[a-z]*$| ABCabc, zzzyz, Bob|
 
 
-
 ## Matching Codes
+
+Following codes can help you create compact patterns - they represent certain set of charectors. 
 
 |Code|Meaning|
 |---|---|
@@ -88,6 +92,9 @@ syntax implemented by re module.
 
 ## Anchoring 
 
+The relative location of pattern in the text is also most important part when you deal with data. 
+Following anchoring instructions can help with this requirement. 
+
 |Code|Meaning|
 |---|---|
 |^|start of string, or line|
@@ -98,9 +105,11 @@ syntax implemented by re module.
 |\B|empty string not at the beginning or end of a word|
 
 
-## Mostly used functions from re module,
+## Most commonly used functions from re module,
 
-* compile(pattern, flags=0) – it compiles a regular expression pattern into a regular expression object, which can be used for matching using the match and search methods.
+*re* module has lots of methods to help us with our *regex* needs. Following are a few very commonly used methods. 
+
+* compile(pattern, flags=0) – it compiles a regular expression pattern into a regular expression object, which can be used for matching using the match and search methods. Its always better to compile patterns - they help improve the speed of code. 
 * match(pattern, string, flags=0) – if zero or more characters from the beginning of the string match, it returns a Match object, otherwise, it returns None.
 * search(pattern, string, flags=0)  – similar to match(), but it scans all the string, not only it’s beginning.
 * sub(pattern, repl, string, count=0, flags=0) -  Return the string obtained by replacing the leftmost non-overlapping occurrences of the pattern in string by the replacement repl.  repl can be either a string or a callable; if a string, backslash escapes in it are processed.  If it is a callable, it's passed the match object and must return a replacement string to be used.
@@ -212,10 +221,12 @@ A character set can also be used to exclude specific characters. The carat (^) m
 
 * '[^-. ]+':  'sequences without -, ., or space' 
 
-
-## Contraining the Search 
-
 ## Matches with Groups
+
+We need to address certain parts of texts while extracting information from it. 
+The group method on *match* object from *re* module is most important part while dealing with *regex*. 
+We can define a group as a piece of the regular expression search string, and then individually address the corresponding content that was matched by this piece.
+
 
 ## Search Options 
 
