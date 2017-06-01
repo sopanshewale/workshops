@@ -4,7 +4,7 @@ Recursion is a method of solving a problem by reducing it to a simpler problem o
 Let us look at the example of converting decimal integer to binaray number.
 
 Any whole number has the form 2k + b, where k is some smaller whole number and b is either 0 or 1.
-In whole numbers binary expantion, b is the final bit of the binary expansion. It’s easy to see whether this final bit is 0 or 1; 
+In whole numbers binary expansion, b is the final bit of the binary expansion. It’s easy to see whether this final bit is 0 or 1; 
 We just look to observe whether the input number is even or odd. The rest of the number is 2k, whose 
 binary expansion is the same as that of k, but shifted left one place
 
@@ -12,7 +12,7 @@ binary expansion is the same as that of k, but shifted left one place
 For example, consider the number 37 = 2·18+1; here k is 18 and b is 1, so the binary expansion 
 of 37 (100101) is the same as that of 18 (10010), but with an extra 1 on the end.
 
-TODO - diagram, compute expantion of 37
+TODO - diagram, compute expastion of 37
 
 This procedure will work for any number. To compute the binary expansion of a number *n* we proceed as follows:
 * 1. If n is 1, its binary expansion is 1, and we may ignore the rest of the procedure. Similarly, if n is 0, the expansion is simply 0. Otherwise:
@@ -90,4 +90,19 @@ an answer for any argument.
 
 ---
 
+The excution of the above code looks as below: 
+
+```
+
+$ decimal_to_binary.py 37
+100101
+$ decimal_to_binary.py 40
+101000
+$ decimal_to_binary.py 99
+1100011
+$ decimal_to_binary.py 1012
+1111110100
+
+```
+---
 
