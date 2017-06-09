@@ -234,6 +234,8 @@ We can define a group as a piece of the regular expression search string, and th
 ### Multiple Line Match 
 ### Verbose Expression Syntax
 
+## Positive and Negative Lookahead
+
 
 ## References 
 * http://pythex.org/ 

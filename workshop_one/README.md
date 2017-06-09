@@ -1,5 +1,9 @@
 # Python Workshop
 ---
+
+Python is an easy to learn, powerful programming language 
+
+
 ## Day One 
 ---
 * Why Python?
