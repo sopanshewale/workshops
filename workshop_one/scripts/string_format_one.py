@@ -1,5 +1,5 @@
 # implicit order (default one)
-default_order = "{}, {} and {}".format('Hari','Sadu','Naukari')
+default_order = "Name: {}, Lastname: {}  Company: {}".format('Hari','Sadu','Naukari')
 print('\n--- Default Order ---')
 print(default_order)
 
