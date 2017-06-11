@@ -40,7 +40,7 @@ def factors(number):
         if number % (n+1) == 0:
            if n+1 < number:                            # Case: The number has smaller divisor  
               quotient = int(number /(n+1))
-                                                       # TODO - Enable Memoization the Programmer 
+                                              # TODO - Enable Memoization the Programmer 
               quotient_factors            = factors(quotient)
               n_factors                   = factors(n+1)
               factors_list                = quotient_factors + n_factors + [number]

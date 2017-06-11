@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-
-f = open ('simple_data.txt', 'w')
-
-f.write("Hello to writing data into file")
-f.write("Line ------2")
-f.write("Line ------3")
-f.close()
+import sys
+with open ('simple_data.txt', 'a') as f:
+   f.write("Hello to writing data into file\n")
+   f.write("Line ------2\n")
+   f.write("Line ------3\n")
 

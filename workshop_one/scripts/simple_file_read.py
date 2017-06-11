@@ -1,8 +1,12 @@
 #!/usr/bin/python3
 
-f = open('simple_data.txt', 'r')
+with open('simple_data.txt', 'r') as f:
+     for l in f:
+        print (l)
 
-print (f.read())
-f.close()
+print ("----------->")
+
+with open('simple_data.txt', 'r') as f:
+       print (f.read()) 
 
 

@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import re
 
-text = 'aaaabbbbbccccccd'
+text = 'aaaakkkccccccd'
 pattern = 'a+kkk(cc)+d?'
 match = re.match(pattern, text)
 
