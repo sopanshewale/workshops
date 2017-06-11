@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import sys
 
+ 
 def get_factors(number):
     factors = []
     for i in range(1, number+1):
@@ -17,17 +18,20 @@ def get_common_members(l_one, l_two):
  
      return common 
 
+def get_gcd(n, m):
+    f_one = get_factors(n)
+    f_two = get_factors(m)
+    common_factors = get_common_members(f_one, f_two)
+    common_factors.sort() # factors sorted
+    return common_factors[-1]
 
 
-number_one = int(sys.argv[1])
-number_two = int(sys.argv[2])
+numbers = sys.argv[1:]
+numbers = list(map(int, numbers))
 
-f_one = get_factors(number_one)
-f_two = get_factors(number_two)
+hcf = numbers[0]
+for n in numbers[1:]:
+    tmp =  get_gcd(hcf, n)
+    hcf = tmp
 
-common_factors = get_common_members(f_one, f_two)
-
-common_factors.sort() # factors sorted
-hcf = common_factors[-1]
-
-print ("The HCF of {} and {} are: {}".format(number_one, number_two, hcf))
+print ("The HCF of {} is {}".format(numbers, hcf))
