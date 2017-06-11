@@ -1,0 +1,4 @@
+#!/usr/bin/python3
+import sys
+
+print ("Your number is: {}".format(sys.argv[1]))
