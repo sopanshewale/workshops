@@ -2,12 +2,16 @@
 
 # try input : racecar, madam, sas, car, pune
 def reverse_text(text):
-    pass # TODO 
+     return text[::-1] 
 
 def is_palindrome(text):
-    pass  # TODO 
+    if text == reverse_text(text):
+         return True
+    else: 
+         return False 
 
 something = input("Enter text: ")
+
 if is_palindrome(something):
     print("Yes, it is a palindrome")
 else:
