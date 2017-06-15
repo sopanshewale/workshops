@@ -8,5 +8,7 @@ class Employee (object):
  
     def set_salary(self, salary):
          self._salary = salary
+    def __repr__(self):
+           return self._name
   
     
