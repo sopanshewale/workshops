@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html>
      <head> 
            <title> Dravate Site </title>
@@ -9,6 +11,7 @@
           Hello World - World of Django Applications 
           This is suppose to be  - <strong> {{ boldmessage }} </strong> <br /> 
           Click here to <a href="/dravate/about">About </a> <br />
+          <img src="{% static "images/django_demo_name.jpeg" %}" alt="Picture of Django Name" /> 
      </body>
 </html>
 
